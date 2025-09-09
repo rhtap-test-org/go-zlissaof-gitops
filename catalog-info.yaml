@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-zlissaof-gitops
+  description: This is GitOps manifest for go-zlissaof   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-zlissaof
+    backstage.io/kubernetes-id: go-zlissaof 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-test-org/go-zlissaof-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-test-org.go-zlissaof-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-zlissaof
